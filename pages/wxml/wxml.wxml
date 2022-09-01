@@ -1,0 +1,60 @@
+<!--pages/wxml/wxml.wxml-->
+<!-- 1.可以绑定内容 -->
+<view>{{message}}</view>
+<view>{{firstname}}  {{lastname}}</view>  
+<view>{{firstname + ' ' + lastname}}</view>
+<view>{{age>18?'成年':'未成年'}}</view>
+<view>{{nowTime}}</view>
+<!-- 2.绑定属性 -->
+<button bindtap="switchColor">切换颜色</button>
+<view class="box {{isActive?'active':''}}">哈哈哈</view>
+
+<view>-------------------条件判断---------------------</view>
+<!-- 条件判断 -->
+<button bindtap="switchIshow">是否展示下面的文本</button>
+<!-- wx:if -->
+<view wx:if="{{isShow}}">哈哈哈</view>
+<!-- wx:elif和wx:else -->
+分数：<input class="inp" type="text" 	bindinput="getScore" />
+<view wx:if="{{score>=90}}">优秀</view>
+<view wx:elif="{{score>=80}}">良好</view>
+<view wx:elif="{{score>=60}}">及格</view>
+<view wx:else>不及格</view>
+<!-- wx:if和hidden都可以隐藏元素 -->
+<view wx:if="{{true}}">wx:if控制的元素</view>
+<view hidden="{{false}}">hidden控制的元素</view>
+<!--  wx:if和hidden区别和使用场景
+区别：wx:if隐藏元素是删除元素，hidden是通过css属性进行隐藏。
+使用场景：多次显示隐藏切换使用hidden，一次使用wx:if
+ -->
+
+ <!-- 列表渲染 -->
+ <view>-------------------列表渲染---------------------</view>
+ <!-- 1.基本使用：可以循环数组/字符串/数字 -->
+ <!-- <view wx:for="{{['z','q','小仙女']}}">{{item}} {{index}}</view>
+ <view wx:for="zq小仙女">{{item}} {{index}}</view>
+ <view wx:for="{{3}}">{{item}} {{index}}</view> -->
+ <!-- 2.改变item和index：一般使用在双层嵌套里面 -->
+ <!-- <view wx:for="{{['z','q','小仙女']}}" wx:for-item="myItem" wx:for-index="i">{{myItem}} {{i}}</view> -->
+ <!-- 3.wx:key使用的意义，提高性能 -->
+ <view wx:for="{{['z','q','小仙女']}}" wx:for-item="myItem" wx:for-index="i" wx:key="i">{{myItem}} {{i}}</view>
+ <!-- 4.block标签的使用，该标签经常与wx:for和wx:if这样的命令一起使用 -->
+ <!-- 使用场景：有一组组件想要循环多次展示，或者这组组件要么一起展示要么一起隐藏 -->
+ <!-- 优点：
+      1.不增加多余的组件，改变页面结构
+      2.block标签不会被创建和渲染，比使用view等其他组件包裹性能更好 -->
+ <block wx:if="{{true}}">
+ <button>按钮</button>
+ <view>哈哈哈哈</view>
+ </block>
+ <!-- template的使用 -->
+ <view>-------------------template的使用---------------------</view>
+ <!-- <template name="contentItem">
+  <view>{{name}}</view>
+  <view>{{age}}</view>
+  <view>{{message}}</view>
+ </template> -->
+ <!-- 模板引入 -->
+ <import src="/pages/template/contentItem.wxml"></import>
+ <template is="contentItem" data="{{name:'zq',age:18,message:message}}"></template>
+

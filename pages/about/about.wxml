@@ -1,0 +1,46 @@
+<!--pages/about/about.wxml-->
+<!-- 1.事件的简单回顾 -->
+<button bindtap="handleTap" size="mini">按钮</button>
+<button bind:tap="handleTap" size="mini">按钮</button>
+<button catch:tap="handleTap" size="mini">按钮</button>
+
+<!-- 2.常见的事件类型 -->
+<view class="box"
+    bind:touchstart="handleTouchStart"
+    bind:touchend="handleTouchEnd"
+    bind:touchmove="handleTouchMove"
+    bind:touchcancle="handleTouchCancle"
+    bind:tap="handleTap"
+    bind:longpress="handleLongPress"
+></view>
+<!-- 3.事件对象的介绍 -->
+<!-- 3.1. touches和changedTouches -->
+<view class="box" bind:touchend="touchend">
+touches和changedTouches
+</view>
+<!-- 3.2. currentTarget和target-->
+<view class="outer" id="outer" bindtap="outer">
+  <view class="inner" id="inner" bindtap="inner"></view>
+</view>
+<!-- 4.事件传递参数 通过data-属性 -->
+ <!-- 使用事件委托提高效率 -->
+<view class="product" bindtap="itemClick">
+ <block wx:for="{{list}}" wx:key="index">
+ <!-- <view class="item" bindtap="itemClick" data-name='{{item}}' data-id='{{index}}'>{{item}}</view> -->
+ <view class="item" data-name='{{item}}' data-id='{{index}}'>{{item}}</view>
+ </block>
+</view>
+<!-- 5.事件捕捉与事件冒泡 -->
+<!-- 补充：catch和bind的区别，catch捕捉之后事件不会在传递 -->
+<!-- <view class="view1" bindtap="tapView1" capture-bind:tap="captureView1"> -->
+<view class="contentBox">
+  <view class="view1" bindtap="tapView1" capture-bind:tap="captureView1">
+  view1
+  <view class="view2" bindtap="tapView2" capture-catch:tap="captureView2">
+    view12
+    <view class="view3" bindtap="tapView3" capture-bind:tap="captureView3"> view3</view>
+  </view>
+</view>
+</view>
+
+

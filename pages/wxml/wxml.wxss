@@ -1,0 +1,8 @@
+/* pages/wxml/wxml.wxss */
+.active{
+  color: red;
+}
+.inp{
+  border: 1px solid pink;
+  display: inline-block;
+}

@@ -1,0 +1,14 @@
+var message = 'hello world!';
+  var name = 'zq';
+  var age = 18;
+  var sum = function(a, b){
+    return a + b;
+  }
+ 
+  // 必须向外暴露
+  module.exports = {
+    message:message,
+    name:name,
+    age:age,
+    sum:sum
+  }

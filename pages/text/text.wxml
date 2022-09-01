@@ -1,0 +1,14 @@
+<!--pages/text/text.wxml-->
+<!-- 1. selectable文本是否可选 (已废弃)-->
+<text selectable='{{true}}'>Hello World\n</text>
+<text selectable>Hello World\n</text>
+<!-- 2.space -->
+<text >Hello World\n</text>
+<text space="nbsp">Hello World\n</text>
+<text space="ensp">Hello World\n</text>
+<text space="emsp">Hello World\n</text>
+<!-- 3.decode -->
+<text >5 &gt; 3 \n</text>
+<text decode>5 &gt; 3 \n</text>
+
+

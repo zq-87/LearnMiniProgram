@@ -1,0 +1,41 @@
+<!--pages/wxs/wxs.wxml-->
+<!-- wxs标签必须设置module属性，否则会报错！
+里面只支持es5的写法
+ -->
+ <!-- wxs第一种方式的引入，直接在wxml文件中使用wxs标签写入 -->
+<!-- <wxs module="info">
+  var message = 'hello world!';
+  var name = 'zq';
+  var age = 18;
+  var sum = function(a, b){
+    return a + b;
+  }
+  // 必须向外暴露
+  module.exports = {
+    message:message,
+    name:name,
+    age:age,
+    sum:sum
+  }
+</wxs> -->
+<!-- 下面的是错误的代码 -->
+<!-- <view>{{25.666666.toFix(2)}}</view> -->
+<!-- <view>{{returnFix(25.666666)}</view> -->
+
+<!-- wxs的第二种方式引入，在wxs文件中创建一个info.wxs文件，通过wxs标签的src属性引入。
+注意：src里面只能是相对路径
+ -->
+ <wxs src="../../wxs/info.wxs" module="info"></wxs>
+<!-- 使用wxs里面的变量 -->
+<view>{{info.message}}</view>
+<view>{{message1}}</view>
+<view>{{info.sum(1,1)}}</view>
+
+
+<!-- wxs的应用 -->
+<!-- 应用1：将价格保留某个位数 -->
+<wxs src="../../wxs/format.wxs" module="format"></wxs>
+<view>{{price}}</view>
+<view>{{format.toFixPrice(price)}}</view>
+
+<!-- 应用2：将服务器返回的时间戳转为某种格式的日期 -->

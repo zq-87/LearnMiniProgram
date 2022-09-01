@@ -1,0 +1,10 @@
+<!--pages/scroll/scroll.wxml-->
+<view>1-模拟横向滚动</view>
+<scroll-view class="container1" scroll-x bindscroll="scroll">
+  <view wx:for="{{10}}" class="item1">{{item}}</view>
+</scroll-view>
+
+<view>2-模拟垂直滑动</view>
+<scroll-view class="container2" scroll-y 	bindscrolltolower="scrollBottom">
+  <view wx:for="{{10}}" class="item2">{{item}}</view>
+</scroll-view>

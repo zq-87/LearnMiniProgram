@@ -1,0 +1,5 @@
+<template name="contentItem">
+  <view>{{name}}</view>
+  <view>{{age}}</view>
+  <view>{{message}}</view>
+ </template>

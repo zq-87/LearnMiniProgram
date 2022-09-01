@@ -1,0 +1,24 @@
+/* pages/scroll/scroll.wxss */
+/* 1-模拟横向滚动 */
+.container1{
+  height: 100px;
+  background-color: pink;
+  white-space: nowrap;
+}
+.item1{
+  display: inline-block;
+  width: 100px;
+  height:80px;
+  margin: 10px;
+  background-color: green;
+}
+/* 2-模拟垂直滑动 */
+.container2{
+  height: 200px;
+  background-color: pink;
+}
+.item2{
+  height: 80px;
+  margin: 10px;
+  background-color: aquamarine;
+}
